@@ -1,0 +1,953 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>About Us – Vanalok</title>
+    <link
+      rel="icon"
+      href="https://vanalok.com/wp-content/uploads/2025/05/cropped-android-chrome-512x512-1-32x32.png"
+      sizes="32x32"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      :root {
+        --green: #077360;
+        --green-dark: #054e42;
+        --green-light: #e8f5f2;
+        --text: #333;
+        --text-light: #666;
+        --white: #fff;
+        --section-pad: 60px 0;
+        --max-w: 1200px;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        color: var(--text);
+        line-height: 1.6;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      /* ── HEADER ── */
+      #masthead {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        background: rgba(255, 255, 255, 0.96);
+        backdrop-filter: blur(6px);
+        box-shadow: 0 1px 8px rgba(0, 0, 0, 0.08);
+        padding: 0 32px;
+      }
+      .header-inner {
+        max-width: var(--max-w);
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 72px;
+      }
+      .site-logo img {
+        height: 54px;
+        width: auto;
+      }
+      .nav-toggle {
+        display: none;
+        cursor: pointer;
+        background: none;
+        border: none;
+        padding: 4px;
+      }
+      .nav-toggle svg {
+        display: block;
+      }
+      .main-nav ul {
+        list-style: none;
+        display: flex;
+        gap: 4px;
+        flex-wrap: wrap;
+      }
+      .main-nav ul li a {
+        display: block;
+        padding: 6px 10px;
+        font-size: 0.85rem;
+        font-weight: 500;
+        color: var(--text);
+        border-radius: 4px;
+        transition:
+          color 0.2s,
+          background 0.2s;
+      }
+      .main-nav ul li a:hover,
+      .main-nav ul li a.active {
+        color: var(--green);
+        background: var(--green-light);
+      }
+
+      /* Mobile nav drawer */
+      .nav-drawer {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 2000;
+      }
+      .nav-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.45);
+      }
+      .nav-panel {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 280px;
+        height: 100%;
+        background: var(--white);
+        padding: 24px 20px;
+        overflow-y: auto;
+        animation: slideIn 0.25s ease;
+      }
+      @keyframes slideIn {
+        from {
+          transform: translateX(100%);
+        }
+        to {
+          transform: translateX(0);
+        }
+      }
+      .nav-panel-close {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 16px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: var(--text);
+      }
+      .nav-panel ul {
+        list-style: none;
+      }
+      .nav-panel ul li a {
+        display: block;
+        padding: 12px 8px;
+        border-bottom: 1px solid #eee;
+        font-size: 0.95rem;
+        font-weight: 500;
+        color: var(--text);
+        transition: color 0.2s;
+      }
+      .nav-panel ul li a:hover {
+        color: var(--green);
+      }
+      .nav-drawer.open {
+        display: block;
+      }
+
+      /* ── PAGE HERO BANNER ── */
+      .page-hero {
+        margin-top: 72px;
+        background: linear-gradient(
+          135deg,
+          var(--green-dark) 0%,
+          var(--green) 100%
+        );
+        padding: 56px 24px;
+        text-align: center;
+        color: var(--white);
+      }
+      .page-hero h1 {
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+      .page-hero p {
+        font-size: 1.1rem;
+        opacity: 0.88;
+      }
+      .breadcrumb {
+        margin-top: 14px;
+        font-size: 0.85rem;
+        opacity: 0.75;
+      }
+      .breadcrumb a {
+        color: #7de8d2;
+      }
+      .breadcrumb a:hover {
+        text-decoration: underline;
+      }
+
+      /* ── SECTIONS ── */
+      .section {
+        padding: var(--section-pad);
+      }
+      .container {
+        max-width: var(--max-w);
+        margin: auto;
+        padding: 0 24px;
+      }
+      .section-tag {
+        font-size: 0.88rem;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--green);
+        margin-bottom: 6px;
+      }
+      .section-title {
+        font-size: clamp(1.6rem, 3vw, 2.2rem);
+        font-weight: 700;
+        color: var(--text);
+        margin-bottom: 20px;
+      }
+      .section-title.center {
+        text-align: center;
+      }
+
+      /* ── PERSON CARD (Founders) ── */
+      .founders-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        margin-top: 40px;
+      }
+      @media (max-width: 768px) {
+        .founders-grid {
+          grid-template-columns: 1fr;
+          gap: 32px;
+        }
+      }
+      .founder-card {
+        background: var(--white);
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+        display: flex;
+        flex-direction: column;
+      }
+      .founder-card-img {
+        width: 100%;
+        height: 320px;
+        object-fit: cover;
+        object-position: top;
+      }
+      @media (max-width: 480px) {
+        .founder-card-img {
+          height: 240px;
+        }
+      }
+      .founder-card-body {
+        padding: 28px 24px;
+        flex: 1;
+      }
+      .founder-card-body h2 {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: var(--green-dark);
+        margin-bottom: 4px;
+      }
+      .founder-card-body .role {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--green);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 16px;
+      }
+      .founder-card-body ul {
+        list-style: none;
+        padding: 0;
+      }
+      .founder-card-body ul li {
+        font-size: 0.92rem;
+        color: var(--text-light);
+        line-height: 1.7;
+        padding: 6px 0;
+        border-bottom: 1px solid #f0f0f0;
+        padding-left: 18px;
+        position: relative;
+      }
+      .founder-card-body ul li::before {
+        content: "▸";
+        position: absolute;
+        left: 0;
+        color: var(--green);
+        font-size: 0.75rem;
+        top: 8px;
+      }
+      .founder-card-body ul li:last-child {
+        border-bottom: none;
+      }
+
+      /* ── ASSOCIATES & ADVISORS GRID ── */
+      .people-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 28px;
+        margin-top: 36px;
+      }
+      @media (max-width: 500px) {
+        .people-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 16px;
+        }
+      }
+      @media (max-width: 340px) {
+        .people-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      .person-card {
+        background: var(--white);
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 2px 14px rgba(0, 0, 0, 0.07);
+        text-align: center;
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+      .person-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 28px rgba(7, 115, 96, 0.13);
+      }
+      .person-card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        object-position: top;
+      }
+      .person-card-body {
+        padding: 16px 14px;
+      }
+      .person-card-body h3 {
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--green-dark);
+        margin-bottom: 4px;
+      }
+      .person-card-body p {
+        font-size: 0.82rem;
+        color: var(--text-light);
+      }
+
+      /* ── SECTION BACKGROUNDS ── */
+      .bg-founders {
+        background: #fff8f0;
+      }
+      .bg-associates {
+        background: #e8f4fd;
+      }
+      .bg-advisors {
+        background: #f0f7ef;
+      }
+
+      /* ── FOOTER ── */
+      footer {
+        background: #1a2e28;
+        color: rgba(255, 255, 255, 0.8);
+        padding: 48px 24px 24px;
+      }
+      .footer-inner {
+        max-width: var(--max-w);
+        margin: auto;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 32px;
+        margin-bottom: 32px;
+      }
+      @media (max-width: 700px) {
+        .footer-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      .footer-col h4 {
+        color: var(--white);
+        font-size: 0.95rem;
+        font-weight: 600;
+        margin-bottom: 14px;
+        padding-bottom: 8px;
+        border-bottom: 2px solid var(--green);
+        display: inline-block;
+      }
+      .footer-col p,
+      .footer-col a {
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.72);
+        line-height: 1.8;
+        display: block;
+      }
+      .footer-col a:hover {
+        color: #7de8d2;
+      }
+      .footer-contact-item {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 12px;
+        align-items: flex-start;
+      }
+      .footer-contact-item svg {
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
+      .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 16px;
+        text-align: center;
+        font-size: 0.8rem;
+        color: rgba(255, 255, 255, 0.45);
+      }
+
+      /* ── SCROLL TO TOP ── */
+      #scrollTop {
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        z-index: 999;
+        background: var(--green);
+        color: var(--white);
+        border: none;
+        cursor: pointer;
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 12px rgba(7, 115, 96, 0.3);
+        transition: background 0.2s;
+      }
+      #scrollTop.visible {
+        display: flex;
+      }
+      #scrollTop:hover {
+        background: var(--green-dark);
+      }
+
+      /* ── RESPONSIVE TWEAKS ── */
+      @media (max-width: 900px) {
+        .main-nav {
+          display: none;
+        }
+        .nav-toggle {
+          display: block;
+        }
+      }
+      @media (max-width: 480px) {
+        #masthead {
+          padding: 0 16px;
+        }
+        .page-hero {
+          padding: 40px 16px;
+        }
+        .container {
+          padding: 0 16px;
+        }
+        .section {
+          padding: 40px 0;
+        }
+        .founder-card-body {
+          padding: 20px 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header id="masthead">
+      <div class="header-inner">
+        <a href="index.html" class="site-logo">
+          <img
+            src="images/logo.png"
+            alt="Vanalok"
+            onerror="
+              this.style.display = 'none';
+              this.nextSibling.style.display = 'block';
+            "
+          />
+          <span
+            style="
+              display: none;
+              font-size: 1.4rem;
+              font-weight: 700;
+              color: #077360;
+            "
+            >Vanalok</span
+          >
+        </a>
+        <nav class="main-nav" aria-label="Main navigation">
+          <ul>
+            <li><a href="https://vanalok.com/index.html">Home</a></li>
+            <li><a href="" class="active">About Us</a></li>
+            <li><a href="https://vanalok.com/index.html#homeFocus">Key Work Areas</a></li>
+            <li><a href="https://vanalok.com/index.html#homeSign">Signages</a></li>
+            <li><a href="https://vanalok.com/index.html#interpretation">Interpretation</a></li>
+            <li><a href="https://vanalok.com/index.html#team">Advisors</a></li>
+            <li><a href="https://vanalok.com/index.html#partners">Partners</a></li>
+            <li><a href="https://vanalok.com/contact.html">Contact Us</a></li>
+          </ul>
+        </nav>
+        <button class="nav-toggle" aria-label="Open menu" id="navToggle">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="26"
+            height="26"
+            viewBox="0 0 24 25"
+            fill="none"
+          >
+            <path
+              d="M20 12.18H10"
+              stroke="#077360"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            />
+            <path
+              d="M20 5.18H4"
+              stroke="#077360"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            />
+            <path
+              d="M20 19.18H4"
+              stroke="#077360"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            />
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- MOBILE NAV DRAWER -->
+    <div class="nav-drawer" id="navDrawer">
+      <div class="nav-overlay" id="navOverlay"></div>
+      <div class="nav-panel">
+        <button class="nav-panel-close" id="navClose" aria-label="Close menu">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 512 512"
+            fill="#333"
+          >
+            <path
+              d="M464 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm0 394c0 3.3-2.7 6-6 6H54c-3.3 0-6-2.7-6-6V86c0-3.3 2.7-6 6-6h404c3.3 0 6 2.7 6 6v340zM356.5 194.6L295.1 256l61.4 61.4c4.6 4.6 4.6 12.1 0 16.8l-22.3 22.3c-4.6 4.6-12.1 4.6-16.8 0L256 295.1l-61.4 61.4c-4.6 4.6-12.1 4.6-16.8 0l-22.3-22.3c-4.6-4.6-4.6-12.1 0-16.8l61.4-61.4-61.4-61.4c-4.6-4.6-4.6-12.1 0-16.8l22.3-22.3c4.6-4.6 12.1-4.6 16.8 0l61.4 61.4 61.4-61.4c4.6-4.6 12.1-4.6 16.8 0l22.3 22.3c4.7 4.6 4.7 12.1 0 16.8z"
+            />
+          </svg>
+        </button>
+        <nav>
+          <ul>
+            <li><a href="https://vanalok.com/index.html">Home</a></li>
+            <li><a href="" class="active">About Us</a></li>
+            <li><a href="https://vanalok.com/index.html#homeFocus">Key Work Areas</a></li>
+            <li><a href="https://vanalok.com/index.html#homeSign">Signages</a></li>
+            <li><a href="https://vanalok.com/index.html#interpretation">Interpretation</a></li>
+            <li><a href="https://vanalok.com/index.html#team">Advisors</a></li>
+            <li><a href="https://vanalok.com/index.html#partners">Partners</a></li>
+            <li><a href="https://vanalok.com/contact.html">Contact Us</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+      <h1>About Us</h1>
+      <p>Meet the people behind Vanalok's mission</p>
+      <div class="breadcrumb">
+        <a href="index.html">Home</a> &rsaquo; About Us
+      </div>
+    </div>
+
+    <!-- FOUNDERS -->
+    <section class="section bg-founders">
+      <div class="container">
+        <p class="section-tag">Our Leadership</p>
+        <h2 class="section-title">Our Founders</h2>
+        <div class="founders-grid">
+          <!-- Founder 1 -->
+          <div class="founder-card">
+            <img
+              class="founder-card-img"
+              src="https://vanalok.com/wp-content/uploads/2024/03/Picture1.png"
+              alt="Santosh Sutar"
+              loading="lazy"
+              onerror="
+                this.style.background = '#e8f5f2';
+                this.style.height = '200px';
+              "
+            />
+            <div class="founder-card-body">
+              <h2>Santosh Sutar</h2>
+              <p class="role">Founder</p>
+              <ul>
+                <li>
+                  Highly energetic and a multifaceted personality with diverse
+                  interests — the brains behind the inception of Vanalok.
+                </li>
+                <li>
+                  25 years of expertise in Environmental Education, creating
+                  interpretation centres, publishing educational and
+                  environmental content, and creating forest trails across
+                  Karnataka, Maharashtra and Goa.
+                </li>
+                <li>
+                  Expert in teacher training programs and student-led project
+                  based learning.
+                </li>
+                <li>
+                  Awardee of many local and state level awards for work in
+                  Environmental Education and implementation of Sustainable
+                  Development Goals (SDGs).
+                </li>
+                <li>
+                  Environmental Consultant to different educational
+                  institutions, government institutions and departments.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Founder 2 -->
+          <div class="founder-card">
+            <img
+              class="founder-card-img"
+              src="https://vanalok.com/wp-content/uploads/2024/03/WhatsApp-Image-2024-03-13-at-11.32.58-AM-1.jpeg"
+              alt="Vishnupriya Hathwar"
+              loading="lazy"
+              onerror="
+                this.style.background = '#e8f5f2';
+                this.style.height = '200px';
+              "
+            />
+            <div class="founder-card-body">
+              <h2>Vishnupriya Hathwar</h2>
+              <p class="role">Founder</p>
+              <ul>
+                <li>
+                  Highly energetic and a multifaceted personality with diverse
+                  interests. Has worked with different sectors pertaining to
+                  Education and Nature.
+                </li>
+                <li>
+                  20 years of expertise in Environmental Education and
+                  Nature-based Integrated Learning.
+                </li>
+                <li>
+                  Author of "The Invisible Link" — a book on integrated
+                  learning, and science-toonist.
+                </li>
+                <li>
+                  Mentor to students for project based learning and personal
+                  development.
+                </li>
+                <li>
+                  Conducts Nature based Educator Training Programs and credit
+                  courses for students.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OUR ASSOCIATES -->
+    <section class="section bg-associates">
+      <div class="container">
+        <p class="section-tag">The Team</p>
+        <h2 class="section-title">Our Associates</h2>
+        <div class="people-grid">
+          <div class="person-card">
+            <img
+              src="https://vanalok.com/wp-content/uploads/2024/03/WhatsApp-Image-2024-03-15-at-3.35.11-PM-e1710506481249.jpeg"
+              alt="Takuma Hayashi"
+              loading="lazy"
+              onerror="
+                this.src = 'images/cropped-logo.png';
+                this.style.objectFit = 'contain';
+                this.style.padding = '20px';
+              "
+            />
+            <div class="person-card-body">
+              <h3>Takuma Hayashi</h3>
+              <p>President</p>
+            </div>
+          </div>
+
+          <div class="person-card">
+            <img
+              src="https://vanalok.com/wp-content/uploads/2024/03/WhatsApp-Image-2024-03-15-at-3.36.14-PM.jpeg"
+              alt="Mirjam Nilsson"
+              loading="lazy"
+              onerror="
+                this.src = 'images/cropped-logo.png';
+                this.style.objectFit = 'contain';
+                this.style.padding = '20px';
+              "
+            />
+            <div class="person-card-body">
+              <h3>Mirjam Nilsson</h3>
+              <p>Chief Executive Officer</p>
+            </div>
+          </div>
+
+          <div class="person-card">
+            <img
+              src="https://vanalok.com/wp-content/uploads/2024/02/associates-3.png"
+              alt="Flora Berggren"
+              loading="lazy"
+              onerror="
+                this.src = 'images/cropped-logo.png';
+                this.style.objectFit = 'contain';
+                this.style.padding = '20px';
+              "
+            />
+            <div class="person-card-body">
+              <h3>Flora Berggren</h3>
+              <p>Chief Operations Officer</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OUR ADVISORS -->
+    <section class="section bg-advisors">
+      <div class="container">
+        <p class="section-tag">Guidance &amp; Expertise</p>
+        <h2 class="section-title">Our Advisors</h2>
+        <div class="people-grid">
+          <div class="person-card">
+            <img
+              src="https://vanalok.com/wp-content/uploads/2024/02/advisors-1.png"
+              alt="Rajesh Santoshi"
+              loading="lazy"
+              onerror="
+                this.src = 'images/cropped-logo.png';
+                this.style.objectFit = 'contain';
+                this.style.padding = '20px';
+              "
+            />
+            <div class="person-card-body">
+              <h3>Rajesh Santoshi</h3>
+              <p>VP Marketing</p>
+            </div>
+          </div>
+
+          <div class="person-card">
+            <img
+              src="https://vanalok.com/wp-content/uploads/2024/02/advisors-2.png"
+              alt="Graham Barnes"
+              loading="lazy"
+              onerror="
+                this.src = 'images/cropped-logo.png';
+                this.style.objectFit = 'contain';
+                this.style.padding = '20px';
+              "
+            />
+            <div class="person-card-body">
+              <h3>Graham Barnes</h3>
+              <p>VP Product</p>
+            </div>
+          </div>
+
+          <div class="person-card">
+            <img
+              src="https://vanalok.com/wp-content/uploads/2024/02/advisors-3.png"
+              alt="Rowan Murphy"
+              loading="lazy"
+              onerror="
+                this.src = 'images/cropped-logo.png';
+                this.style.objectFit = 'contain';
+                this.style.padding = '20px';
+              "
+            />
+            <div class="person-card-body">
+              <h3>Rowan Murphy</h3>
+              <p>SEO Strategist</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <h4>Vanalok</h4>
+            <p>
+              Vanalok Ventures Pvt Ltd — Building environmental sustainability
+              through nature interpretation, eco-tourism, green infrastructure,
+              and community engagement.
+            </p>
+          </div>
+          <div class="footer-col">
+            <h4>Quick Links</h4>
+            <a href="#">About Us</a>
+            <a href="https://vanalok.com/index.html#homeFocus">Key Work Areas</a>
+            <a href="https://vanalok.com/index.html#interpretation">Interpretation</a>
+            <a href="https://vanalok.com/index.html#homeSign">Signages</a>
+            <a href="https://vanalok.com/contact.html">Contact Us</a>
+          </div>
+          <div class="footer-col">
+            <h4>Contact Us</h4>
+            <div class="footer-contact-item">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 25 24"
+                fill="none"
+              >
+                <path
+                  d="M12.5605 11.5024C11.8975 11.5024 11.2616 11.239 10.7928 10.7702C10.3239 10.3014 10.0605 9.66548 10.0605 9.00244C10.0605 8.3394 10.3239 7.70352 10.7928 7.23467C11.2616 6.76583 11.8975 6.50244 12.5605 6.50244C13.2236 6.50244 13.8595 6.76583 14.3283 7.23467C14.7972 7.70352 15.0605 8.3394 15.0605 9.00244C15.0605 9.95244 14.3005 11.5024 12.5605 11.5024ZM12.5605 2.00244C8.7005 2.00244 5.56055 5.14244 5.56055 9.00244C5.56055 14.2524 12.5605 22.0024 12.5605 22.0024C12.5605 22.0024 19.5605 14.2524 19.5605 9.00244C19.5605 5.14244 16.4205 2.00244 12.5605 2.00244Z"
+                  fill="#7de8d2"
+                />
+              </svg>
+              <p>
+                4th Floor, Vanavikas Building, KFDC, Malleshwaram 18th Cross,
+                Bengaluru – 560003
+              </p>
+            </div>
+            <div class="footer-contact-item">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 25 24"
+                fill="none"
+              >
+                <path
+                  d="M20.5705 15.3824C19.3405 15.3824 18.1505 15.1824 17.0405 14.8224C16.0305 14.4824 14.7005 15.0624 14.4605 17.0324C11.6305 15.6824 8.98055 13.1324 7.57055 10.2024L9.52055 8.54244C9.79055 8.26244 9.87055 7.87244 9.76055 7.52244C9.39055 6.41244 9.20055 5.22244 9.20055 3.99244C9.20055 3.45244 8.75055 3.00244 8.21055 3.00244H4.75055C4.21055 3.00244 3.56055 3.24244 3.56055 3.99244C3.56055 13.2824 11.2905 21.0024 20.5705 21.0024C21.2805 21.0024 21.5605 20.3724 21.5605 19.8224V16.3724C21.5605 15.8324 21.1105 15.3824 20.5705 15.3824Z"
+                  fill="#7de8d2"
+                />
+              </svg>
+              <p>
+                <a href="tel:+919591100551">+91 9591100551</a><br /><a
+                  href="tel:08029902134"
+                  >080 - 29902134</a
+                >
+              </p>
+            </div>
+            <div class="footer-contact-item">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 25 24"
+                fill="none"
+              >
+                <path
+                  d="M20.5605 4.00244H4.56055C3.46055 4.00244 2.56055 4.90244 2.56055 6.00244V18.0024C2.56055 19.1024 3.46055 20.0024 4.56055 20.0024H20.5605C21.6605 20.0024 22.5605 19.1024 22.5605 18.0024V6.00244C22.5605 4.90244 21.6605 4.00244 20.5605 4.00244ZM20.1605 8.25244L13.6205 12.3424C12.9705 12.7524 12.1505 12.7524 11.5005 12.3424L4.96055 8.25244C4.65055 8.06244 4.54055 7.66244 4.73055 7.35244C4.92055 7.04244 5.32055 6.93244 5.63055 7.12244L12.5605 11.0024L19.4905 7.12244C19.8005 6.93244 20.2005 7.04244 20.3905 7.35244C20.5805 7.66244 20.4705 8.06244 20.1605 8.25244Z"
+                  fill="#7de8d2"
+                />
+              </svg>
+              <p><a href="mailto:info@vanalok.com">info@vanalok.com</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2024 Vanalok Ventures Pvt Ltd. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- SCROLL TO TOP -->
+    <button id="scrollTop" aria-label="Scroll to top">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="white"
+        stroke-width="2.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <polyline points="18 15 12 9 6 15"></polyline>
+      </svg>
+    </button>
+
+    <script>
+      const navToggle = document.getElementById("navToggle");
+      const navDrawer = document.getElementById("navDrawer");
+      const navClose = document.getElementById("navClose");
+      const navOverlay = document.getElementById("navOverlay");
+
+      navToggle.addEventListener("click", () =>
+        navDrawer.classList.add("open"),
+      );
+      navClose.addEventListener("click", () =>
+        navDrawer.classList.remove("open"),
+      );
+      navOverlay.addEventListener("click", () =>
+        navDrawer.classList.remove("open"),
+      );
+      navDrawer
+        .querySelectorAll("a")
+        .forEach((a) =>
+          a.addEventListener("click", () => navDrawer.classList.remove("open")),
+        );
+
+      const mq = window.matchMedia("(max-width: 900px)");
+      function handleNav(e) {
+        document.querySelector(".main-nav").style.display = e.matches
+          ? "none"
+          : "";
+        navToggle.style.display = e.matches ? "" : "none";
+      }
+      mq.addEventListener("change", handleNav);
+      handleNav(mq);
+
+      const scrollBtn = document.getElementById("scrollTop");
+      window.addEventListener("scroll", () => {
+        scrollBtn.classList.toggle("visible", window.scrollY > 300);
+      });
+      scrollBtn.addEventListener("click", () =>
+        window.scrollTo({ top: 0, behavior: "smooth" }),
+      );
+    </script>
+  </body>
+  <script>
+    "undefined" === typeof _trfq || (window._trfq = []);
+    ("undefined" === typeof _trfd && (window._trfd = []),
+      _trfd.push(
+        { "tccl.baseHost": "secureserver.net" },
+        { ap: "cpsh-oh" },
+        { server: "sg2plzcpnl508095" },
+        { dcenter: "sg2" },
+        { cp_id: "10904619" },
+        { cp_cl: "8" },
+      )); // Monitoring performance to make your website faster. If you want to opt-out, please contact web hosting support.
+  </script>
+  <script src="https://img1.wsimg.com/traffic-assets/js/tccl.min.js"></script>
+</html>
