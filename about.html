@@ -302,67 +302,9 @@
         border-bottom: none;
       }
 
-      /* ── ASSOCIATES & ADVISORS GRID ── */
-      .people-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-        gap: 28px;
-        margin-top: 36px;
-      }
-      @media (max-width: 500px) {
-        .people-grid {
-          grid-template-columns: repeat(2, 1fr);
-          gap: 16px;
-        }
-      }
-      @media (max-width: 340px) {
-        .people-grid {
-          grid-template-columns: 1fr;
-        }
-      }
-      .person-card {
-        background: var(--white);
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: 0 2px 14px rgba(0, 0, 0, 0.07);
-        text-align: center;
-        transition:
-          transform 0.2s,
-          box-shadow 0.2s;
-      }
-      .person-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 8px 28px rgba(7, 115, 96, 0.13);
-      }
-      .person-card img {
-        width: 100%;
-        height: 180px;
-        object-fit: cover;
-        object-position: top;
-      }
-      .person-card-body {
-        padding: 16px 14px;
-      }
-      .person-card-body h3 {
-        font-size: 1rem;
-        font-weight: 700;
-        color: var(--green-dark);
-        margin-bottom: 4px;
-      }
-      .person-card-body p {
-        font-size: 0.82rem;
-        color: var(--text-light);
-      }
-
-      /* ── SECTION BACKGROUNDS ── */
+        /* ── SECTION BACKGROUNDS ── */
       .bg-founders {
         background: #fff8f0;
-      }
-      .bg-associates {
-        background: #e8f4fd;
-      }
-      .bg-advisors {
-        background: #f0f7ef;
       }
 
       /* ── FOOTER ── */
@@ -594,7 +536,7 @@
           <div class="founder-card">
             <img
               class="founder-card-img"
-              src="https://vanalok.com/wp-content/uploads/2024/03/Picture1.png"
+              src="images/team/santoshSir.png"
               alt="Santosh Sutar"
               loading="lazy"
               onerror="
@@ -637,7 +579,7 @@
           <div class="founder-card">
             <img
               class="founder-card-img"
-              src="https://vanalok.com/wp-content/uploads/2024/03/WhatsApp-Image-2024-03-13-at-11.32.58-AM-1.jpeg"
+              src="images/team/core/vishnu.png"
               alt="Vishnupriya Hathwar"
               loading="lazy"
               onerror="
@@ -671,126 +613,6 @@
                   courses for students.
                 </li>
               </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- OUR ASSOCIATES -->
-    <section class="section bg-associates">
-      <div class="container">
-        <p class="section-tag">The Team</p>
-        <h2 class="section-title">Our Associates</h2>
-        <div class="people-grid">
-          <div class="person-card">
-            <img
-              src="https://vanalok.com/wp-content/uploads/2024/03/WhatsApp-Image-2024-03-15-at-3.35.11-PM-e1710506481249.jpeg"
-              alt="Takuma Hayashi"
-              loading="lazy"
-              onerror="
-                this.src = 'images/cropped-logo.png';
-                this.style.objectFit = 'contain';
-                this.style.padding = '20px';
-              "
-            />
-            <div class="person-card-body">
-              <h3>Takuma Hayashi</h3>
-              <p>President</p>
-            </div>
-          </div>
-
-          <div class="person-card">
-            <img
-              src="https://vanalok.com/wp-content/uploads/2024/03/WhatsApp-Image-2024-03-15-at-3.36.14-PM.jpeg"
-              alt="Mirjam Nilsson"
-              loading="lazy"
-              onerror="
-                this.src = 'images/cropped-logo.png';
-                this.style.objectFit = 'contain';
-                this.style.padding = '20px';
-              "
-            />
-            <div class="person-card-body">
-              <h3>Mirjam Nilsson</h3>
-              <p>Chief Executive Officer</p>
-            </div>
-          </div>
-
-          <div class="person-card">
-            <img
-              src="https://vanalok.com/wp-content/uploads/2024/02/associates-3.png"
-              alt="Flora Berggren"
-              loading="lazy"
-              onerror="
-                this.src = 'images/cropped-logo.png';
-                this.style.objectFit = 'contain';
-                this.style.padding = '20px';
-              "
-            />
-            <div class="person-card-body">
-              <h3>Flora Berggren</h3>
-              <p>Chief Operations Officer</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- OUR ADVISORS -->
-    <section class="section bg-advisors">
-      <div class="container">
-        <p class="section-tag">Guidance &amp; Expertise</p>
-        <h2 class="section-title">Our Advisors</h2>
-        <div class="people-grid">
-          <div class="person-card">
-            <img
-              src="https://vanalok.com/wp-content/uploads/2024/02/advisors-1.png"
-              alt="Rajesh Santoshi"
-              loading="lazy"
-              onerror="
-                this.src = 'images/cropped-logo.png';
-                this.style.objectFit = 'contain';
-                this.style.padding = '20px';
-              "
-            />
-            <div class="person-card-body">
-              <h3>Rajesh Santoshi</h3>
-              <p>VP Marketing</p>
-            </div>
-          </div>
-
-          <div class="person-card">
-            <img
-              src="https://vanalok.com/wp-content/uploads/2024/02/advisors-2.png"
-              alt="Graham Barnes"
-              loading="lazy"
-              onerror="
-                this.src = 'images/cropped-logo.png';
-                this.style.objectFit = 'contain';
-                this.style.padding = '20px';
-              "
-            />
-            <div class="person-card-body">
-              <h3>Graham Barnes</h3>
-              <p>VP Product</p>
-            </div>
-          </div>
-
-          <div class="person-card">
-            <img
-              src="https://vanalok.com/wp-content/uploads/2024/02/advisors-3.png"
-              alt="Rowan Murphy"
-              loading="lazy"
-              onerror="
-                this.src = 'images/cropped-logo.png';
-                this.style.objectFit = 'contain';
-                this.style.padding = '20px';
-              "
-            />
-            <div class="person-card-body">
-              <h3>Rowan Murphy</h3>
-              <p>SEO Strategist</p>
             </div>
           </div>
         </div>
